@@ -124,10 +124,7 @@
                 </div>
             <!-- </div> -->
         </div>
-    <pre>
-      {{ login }}
-      {{ register }}
-    </pre>
+    
     
     </div>
 </template>
@@ -163,7 +160,7 @@ export default {
 
     async loginUser() {
      try {
-      let response = await this.$http.post('/api/user/login')
+      let response = await this.$http.post('/api/user/login', this.login)
       console.log(response.data);
       let token = response.data.tokenReturn;
       let user = response.data.user;
@@ -184,7 +181,7 @@ export default {
 
     async registerUser(){
       try {
-        let response = await this.$http.post('/api/user/register'. this.register);
+        let response = await this.$http.post('/api/user/register', this.register);
 
         console.log(response)
         swal("exito!", 'Bienvenido', "success");
